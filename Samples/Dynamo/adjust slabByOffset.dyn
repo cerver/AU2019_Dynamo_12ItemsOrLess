@@ -1,0 +1,503 @@
+{
+  "Uuid": "00c977a3-faa4-4215-bb8f-e3ca92794487",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "adjust slabByOffset",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "f714ef06-3fa3-4b95-b3e7-bbbd1e6eda49-000aa50c"
+      ],
+      "Id": "ccec7efad01b4f82b91f87f5c925e7b8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a189e6efb29c480ebe89f95e0a3b8cf1",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "94050ce4-e59f-4377-933d-16326991c630",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "fc794e2efad24f21bf2f9ed5a8f0f546",
+      "Inputs": [
+        {
+          "Id": "5cdef2ff34a640d2881c53d77fa4260c",
+          "Name": "element",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "db7974f5bc04410e85e2fbd2f9840083",
+          "Name": "fetchModelCurves",
+          "Description": "bool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6e00f2e1509d44d09048fb1a0e7d4a9d",
+          "Name": "refresh",
+          "Description": "bool\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "12533df854374a338d581545a67edb98",
+          "Name": "curves",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8a6abed4fd3741be97018b0825a791d1",
+          "Name": "model curves",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the actual sketch lines of a sketch based element (floor, ceiling, modified wall, etc.) . You can optionally fetch the matching model curves, however this might prove comptationally heavy on larger data sets. Does not work with elements from linked files."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "eaaabeaf056e42cc8989f2a5ec92fbd2",
+      "Inputs": [
+        {
+          "Id": "940d3b9d8afa4eba87c5c2bef9a849cb",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "18ebf66c28bf408d88e1fc7aef651abe",
+          "Name": "amt",
+          "Description": "Layers of nesting to remove.\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "552f43d9dd57493b876222672e196d2f",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amt: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "1;",
+      "Id": "4cce1edcbd80405bb493c21ebebcdcea",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a9cdb6f6849141a59d305c8648618e25",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "bac5c146-7610-4c0b-a9b1-7a7aeb13bb2b",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "31efd1c1ab6a4703a75f07db2b112a58",
+      "Inputs": [
+        {
+          "Id": "9f3b13836180449e8734cd7ddc61ea32",
+          "Name": "element",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f6f1ddfe5c604c538b950ee4b50eb824",
+          "Name": "location",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a200b02491ab433fb2363c64f55a45b7",
+          "Name": "element",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Attempts to modify the location of the input element. This can effectively add as a move comand in Revit. Works for both line based and point based elements."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "be7b2f6f37eb4622829f82dcbdc993f2",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "517db6721eed44cda67a5069ab8649d5",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "553769fbb83347c8bde7394826b53cf0",
+      "Inputs": [
+        {
+          "Id": "14e1ac0f7f914d36b44d19e4d53c0998",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "85cc0695800e454e843df8a8d7d7756e",
+          "Name": "amt",
+          "Description": "Layers of nesting to remove.\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "822944c8c88548919f02ccd8d5b53348",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amt: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "12;",
+      "Id": "d62047361e38456486db8b878094d4b7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cc8cc1016f1d4986b96d7c4364765eab",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "WombatDynamo.Curve.SmartOffset@Autodesk.DesignScript.Geometry.Curve,double",
+      "Id": "d06894ca77bd4a7c8b6143e88cecfaeb",
+      "Inputs": [
+        {
+          "Id": "61cf5d0ae11746f684466403f032bff4",
+          "Name": "curve",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "34d9196c47ab40bd918c20e173de8c4d",
+          "Name": "offsetDist",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6b333e3d9b3d48879fa598ca51b4cd66",
+          "Name": "Curve",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Offset in a consistent direction relative to the curve's direction.\n\nCurve.SmartOffset (curve: Curve, offsetDist: double): Curve"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "a189e6efb29c480ebe89f95e0a3b8cf1",
+      "End": "5cdef2ff34a640d2881c53d77fa4260c",
+      "Id": "edf197b689a646dabc5058030a7f09b6"
+    },
+    {
+      "Start": "12533df854374a338d581545a67edb98",
+      "End": "940d3b9d8afa4eba87c5c2bef9a849cb",
+      "Id": "fe8fa40c5004430b87a59f0413ada91a"
+    },
+    {
+      "Start": "8a6abed4fd3741be97018b0825a791d1",
+      "End": "14e1ac0f7f914d36b44d19e4d53c0998",
+      "Id": "b8478e7a7e304987907cead76ea2d8fc"
+    },
+    {
+      "Start": "552f43d9dd57493b876222672e196d2f",
+      "End": "61cf5d0ae11746f684466403f032bff4",
+      "Id": "835786dde3084ef9b8ddac843e46c730"
+    },
+    {
+      "Start": "a9cdb6f6849141a59d305c8648618e25",
+      "End": "18ebf66c28bf408d88e1fc7aef651abe",
+      "Id": "8750283b607444a283019c5d1f997567"
+    },
+    {
+      "Start": "a9cdb6f6849141a59d305c8648618e25",
+      "End": "85cc0695800e454e843df8a8d7d7756e",
+      "Id": "1deef7ce80ab4b3b981bd4798b75a3ef"
+    },
+    {
+      "Start": "517db6721eed44cda67a5069ab8649d5",
+      "End": "db7974f5bc04410e85e2fbd2f9840083",
+      "Id": "1f55d598375847b9ab80bec976060082"
+    },
+    {
+      "Start": "822944c8c88548919f02ccd8d5b53348",
+      "End": "9f3b13836180449e8734cd7ddc61ea32",
+      "Id": "c4f58e48733b4645928e8b979e3df0a6"
+    },
+    {
+      "Start": "cc8cc1016f1d4986b96d7c4364765eab",
+      "End": "34d9196c47ab40bd918c20e173de8c4d",
+      "Id": "ff0e6af104c44a1c9fb0500672f5f603"
+    },
+    {
+      "Start": "6b333e3d9b3d48879fa598ca51b4cd66",
+      "End": "f6f1ddfe5c604c538b950ee4b50eb824",
+      "Id": "7cb4f906a46d4f01927c3fea2dee6dae"
+    }
+  ],
+  "Dependencies": [
+    "94050ce4-e59f-4377-933d-16326991c630",
+    "bac5c146-7610-4c0b-a9b1-7a7aeb13bb2b"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "spring nodes",
+      "Version": "203.1.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "fc794e2efad24f21bf2f9ed5a8f0f546",
+        "31efd1c1ab6a4703a75f07db2b112a58"
+      ]
+    },
+    {
+      "Name": "WombatDynamo",
+      "Version": "1.3.2",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "d06894ca77bd4a7c8b6143e88cecfaeb"
+      ]
+    }
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 5960.4630409251731,
+      "EyeY": 270766.227020323,
+      "EyeZ": 120834.59114810891,
+      "LookX": 28731.387924566949,
+      "LookY": -114464.6410405534,
+      "LookZ": -1913.6911690433917,
+      "UpX": 0.89295579996529628,
+      "UpY": 0.44619781310981294,
+      "UpZ": -0.059476473368645519
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Element",
+        "Id": "ccec7efad01b4f82b91f87f5c925e7b8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 276.5,
+        "Y": 366.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ꟿ Collect.ElementSketch",
+        "Id": "fc794e2efad24f21bf2f9ed5a8f0f546",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 529.253977965318,
+        "Y": 363.15351420018015
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Flatten",
+        "Id": "eaaabeaf056e42cc8989f2a5ec92fbd2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 952.001018846416,
+        "Y": 366.17332953230664
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "4cce1edcbd80405bb493c21ebebcdcea",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 843.9231401523466,
+        "Y": 452.52744994559049
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ꟿ Element.SetLocation",
+        "Id": "31efd1c1ab6a4703a75f07db2b112a58",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1678.8845721285543,
+        "Y": 371.56135033230089
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Boolean",
+        "Id": "be7b2f6f37eb4622829f82dcbdc993f2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 311.89249403328529,
+        "Y": 480.46690711378221
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Flatten",
+        "Id": "553769fbb83347c8bde7394826b53cf0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1431.0316052639107,
+        "Y": 314.72761559997241
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "d62047361e38456486db8b878094d4b7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1254.8514256975386,
+        "Y": 475.64363346926626
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Curve.SmartOffset",
+        "Id": "d06894ca77bd4a7c8b6143e88cecfaeb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1404.7690230437486,
+        "Y": 427.92824761484172
+      }
+    ],
+    "Annotations": [],
+    "X": 108.07246567932435,
+    "Y": 132.48943827272984,
+    "Zoom": 0.42242558977120759
+  }
+}

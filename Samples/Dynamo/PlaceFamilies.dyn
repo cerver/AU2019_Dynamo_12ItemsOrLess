@@ -1,0 +1,429 @@
+{
+  "Uuid": "24dc0ed9-44f1-4e96-8747-76e9f64ea87d",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "PlaceFamilies",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "ea47861d3d9943089d4068fdb243a4d5",
+      "Name": "Integer Slider",
+      "Type": "number",
+      "Value": "16",
+      "MaximumValue": 20.0,
+      "MinimumValue": 0.0,
+      "StepValue": 1.0,
+      "NumberType": "Integer",
+      "Description": "A slider that produces integer values."
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.PointAtParameter@double,double",
+      "Id": "fafe5500136246758fb0050ed8680c46",
+      "Inputs": [
+        {
+          "Id": "5391e6380b0247b3b2907ef99a477e80",
+          "Name": "surface",
+          "Description": "Autodesk.DesignScript.Geometry.Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a56e36dc58104f129073ff936f2ff20e",
+          "Name": "u",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5a625b1932f9425aa5a1dbb092b62769",
+          "Name": "v",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e436ed7127b842f1a12432f2c0e52798",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Longest",
+      "Description": "Return the Point at specified U and V parameters.\n\nSurface.PointAtParameter (u: double = 0, v: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.Math.RandomList@int",
+      "Id": "836c10e8ffb14bd29fb748be52cb4727",
+      "Inputs": [
+        {
+          "Id": "fd7e75f2437b4845b069663f9cc67857",
+          "Name": "amount",
+          "Description": "Amount of random numbers the result list will contain.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2ff4a66dcbd040c5a5f8c0f1c036ad6c",
+          "Name": "number",
+          "Description": "List of random numbers between 0 and 1.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Produces a list containing the given amount of random doubles in the range of [0, 1).\n\nMath.RandomList (amount: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.Math.RandomList@int",
+      "Id": "073a519d32794f90b0dba374be574d04",
+      "Inputs": [
+        {
+          "Id": "544e351a80da45488038386447592209",
+          "Name": "amount",
+          "Description": "Amount of random numbers the result list will contain.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "213f8c16df004a408507e5e123e98b23",
+          "Name": "number",
+          "Description": "List of random numbers between 0 and 1.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Produces a list containing the given amount of random doubles in the range of [0, 1).\n\nMath.RandomList (amount: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Integer",
+      "InputValue": 16,
+      "MaximumValue": 20,
+      "MinimumValue": 0,
+      "StepValue": 1,
+      "Id": "ea47861d3d9943089d4068fdb243a4d5",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0a31b5b937cb474bbc56e3cbd900350b",
+          "Name": "",
+          "Description": "Int32",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A slider that produces integer values."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.FamilyInstance.ByPoint@Revit.Elements.FamilyType,Autodesk.DesignScript.Geometry.Point",
+      "Id": "395ee6ae2d3d4de6a597a9a195f7ce5d",
+      "Inputs": [
+        {
+          "Id": "fa6c53296cb043f39ef03a52cc4c457a",
+          "Name": "familyType",
+          "Description": "Family Type. Also called Family Symbol.\n\nFamilyType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c9664681bddf43e493e6b7442835fd4a",
+          "Name": "point",
+          "Description": "Point in meters.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "54c070b4e526430b9346372bcaf22267",
+          "Name": "FamilyInstance",
+          "Description": "FamilyInstance",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Place a Revit FamilyInstance given the FamilyType (also known as the FamilySymbol in the Revit API) and its coordinates in world space\n\nFamilyInstance.ByPoint (familyType: FamilyType, point: Point): FamilyInstance"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.FamilyTypes, DSRevitNodesUI",
+      "SelectedIndex": 73,
+      "SelectedString": "RPC Male:Alex",
+      "NodeType": "ExtensionNode",
+      "Id": "9917599185694a8eba1407ff03d1074f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "fefc3a0efd8f41a69f5893efe96d0484",
+          "Name": "Family Type",
+          "Description": "The selected Family Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All family types available in the document."
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSFaceSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "0bfcf456-7f6f-4bbe-a844-7b85371f8ae8-0010c5a4:1:SURFACE"
+      ],
+      "Id": "ed9afcdd3dcd471ab83a11f3b3420911",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c6a2742ba4424984b2e10e4d23461cab",
+          "Name": "Surface",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "e436ed7127b842f1a12432f2c0e52798",
+      "End": "c9664681bddf43e493e6b7442835fd4a",
+      "Id": "0f0782db34144a5ca4ab3d09c11d39c5"
+    },
+    {
+      "Start": "2ff4a66dcbd040c5a5f8c0f1c036ad6c",
+      "End": "a56e36dc58104f129073ff936f2ff20e",
+      "Id": "dfe967ec23d543b4b26b762f44a939b9"
+    },
+    {
+      "Start": "213f8c16df004a408507e5e123e98b23",
+      "End": "5a625b1932f9425aa5a1dbb092b62769",
+      "Id": "1dad7b7b8d8b4508ad50a76343926339"
+    },
+    {
+      "Start": "0a31b5b937cb474bbc56e3cbd900350b",
+      "End": "fd7e75f2437b4845b069663f9cc67857",
+      "Id": "fdc77a26be114c3eb59beee800f32760"
+    },
+    {
+      "Start": "0a31b5b937cb474bbc56e3cbd900350b",
+      "End": "544e351a80da45488038386447592209",
+      "Id": "1a08f9a4a102496fbd9a0c0ca8ffaefd"
+    },
+    {
+      "Start": "fefc3a0efd8f41a69f5893efe96d0484",
+      "End": "fa6c53296cb043f39ef03a52cc4c457a",
+      "Id": "d8ef3e9670ff42fea53cce55989d257d"
+    },
+    {
+      "Start": "c6a2742ba4424984b2e10e4d23461cab",
+      "End": "5391e6380b0247b3b2907ef99a477e80",
+      "Id": "8ac1b88db5ce47fbaf1ba9fca1e46df7"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.3.0.5885",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.PointAtParameter",
+        "Id": "fafe5500136246758fb0050ed8680c46",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 471.33333333333331,
+        "Y": 293.33333333333331
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Math.RandomList",
+        "Id": "836c10e8ffb14bd29fb748be52cb4727",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 180.66666666666669,
+        "Y": 419.99999999999994
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Math.RandomList",
+        "Id": "073a519d32794f90b0dba374be574d04",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 190.66666666666669,
+        "Y": 514.66666666666663
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Integer Slider",
+        "Id": "ea47861d3d9943089d4068fdb243a4d5",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -129.33333333333329,
+        "Y": 496.66666666666663
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "FamilyInstance.ByPoint",
+        "Id": "395ee6ae2d3d4de6a597a9a195f7ce5d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 936.52770450318928,
+        "Y": 313.76239860169073
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Family Types",
+        "Id": "9917599185694a8eba1407ff03d1074f",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 705.578982167606,
+        "Y": 298.387002140474
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Face",
+        "Id": "ed9afcdd3dcd471ab83a11f3b3420911",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -387.58586333616,
+        "Y": 294.86700834066579
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "aa6289fd808f4040ba81d7864c41cf83",
+        "Title": "Action",
+        "Nodes": [
+          "fafe5500136246758fb0050ed8680c46",
+          "836c10e8ffb14bd29fb748be52cb4727",
+          "073a519d32794f90b0dba374be574d04",
+          "ea47861d3d9943089d4068fdb243a4d5"
+        ],
+        "Left": -139.33333333333329,
+        "Top": 239.99999999999997,
+        "Width": 816.0,
+        "Height": 367.66666666666663,
+        "FontSize": 36.0,
+        "InitialTop": 293.33333333333331,
+        "InitialHeight": 366.33333333333331,
+        "TextblockHeight": 43.333333333333336,
+        "Background": "#FFFFC999"
+      },
+      {
+        "Id": "2a47fd4970da4d8ca5685d6fd87d1600",
+        "Title": "Commit",
+        "Nodes": [
+          "395ee6ae2d3d4de6a597a9a195f7ce5d",
+          "9917599185694a8eba1407ff03d1074f"
+        ],
+        "Left": 695.578982167606,
+        "Top": 245.05366880714067,
+        "Width": 526.28205566891666,
+        "Height": 187.70872979455007,
+        "FontSize": 36.0,
+        "InitialTop": 298.387002140474,
+        "InitialHeight": 160.37539646121672,
+        "TextblockHeight": 43.333333333333336,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "4341cd8715be425a8adbe0e6b5d9fd87",
+        "Title": "Selection",
+        "Nodes": [
+          "ed9afcdd3dcd471ab83a11f3b3420911"
+        ],
+        "Left": -397.58586333616,
+        "Top": 241.53367500733245,
+        "Width": 247.33333333333334,
+        "Height": 173.0,
+        "FontSize": 36.0,
+        "InitialTop": 294.86700834066579,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 43.333333333333336,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -622.02941760505576,
+    "Y": -389.78870332032903,
+    "Zoom": 1.618912848563949
+  }
+}
